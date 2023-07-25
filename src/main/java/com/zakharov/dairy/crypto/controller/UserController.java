@@ -1,5 +1,6 @@
 package com.zakharov.dairy.crypto.controller;
 
+import com.zakharov.dairy.crypto.dto.UserPageDto;
 import com.zakharov.dairy.crypto.entity.User;
 import com.zakharov.dairy.crypto.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -24,8 +25,8 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id){
-        return userService.getUserById(id);
+    public ResponseEntity getUserById(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(userService.getUserById(id));
     }
 
     @PostMapping

@@ -12,7 +12,13 @@ public class Deal {
     public Long id;
     private String description;
     @ManyToOne
-    private User owner;
+    private User owner; //NotNull ~ maybe
+
+
+    private String tokenName; //NotNull
+    private double amount; //NotNull
+    private boolean result;
+
 
     public Deal() {
     }
@@ -39,5 +45,29 @@ public class Deal {
 
     public void setOwner(User owner) {
         this.owner = owner;
+    }
+
+    public String getTokenName() {
+        return tokenName;
+    }
+
+    public void setTokenName(String tokenName) {
+        this.tokenName = tokenName;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public boolean isResult() {
+        return result;
+    }
+
+    public void setResult(boolean result) {
+        this.result = result;
     }
 }

@@ -6,20 +6,20 @@ import java.util.List;
 
 
 /**
- *  need to understand why this class is not available in the mapper package
- *
+ * Temporary use instead of UserProfileDto (Same structure only difference in classname)
  * **/
-public class UserProfileDto {
+public class UserPageDto {
+
     private Long id;
     private String name;
     private String email;
     private List<Deal> deals;
     private double winRate;
-    private int count;
+    private long count;
     private double totalWin;
     private double totalLose;
 
-    public UserProfileDto() {
+    public UserPageDto() {
     }
 
     public Long getId() {
@@ -62,11 +62,11 @@ public class UserProfileDto {
         this.winRate = winRate;
     }
 
-    public int getCount() {
+    public long getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(long count) {
         this.count = count;
     }
 
@@ -85,4 +85,6 @@ public class UserProfileDto {
     public void setTotalLose(double totalLose) {
         this.totalLose = totalLose;
     }
+
+
 }
