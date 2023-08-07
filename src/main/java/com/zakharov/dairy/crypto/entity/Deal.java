@@ -1,22 +1,31 @@
 package com.zakharov.dairy.crypto.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class Deal {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "deal_id", nullable = false, updatable = false)
+
     public Long id;
+
     private String description;
+
     @ManyToOne
-    private User owner; //NotNull ~ maybe
+    @JoinColumn(
+            name = "user_id",
+            referencedColumnName = "user_id"
+    )
+    private User owner;
+    //add image to perform schema from  "Trading View" for example;
 
 
-    private String tokenName; //NotNull
+    private String coinName; //NotNull
+
     private double amount; //NotNull
+
     private boolean result;
 
 
@@ -47,12 +56,12 @@ public class Deal {
         this.owner = owner;
     }
 
-    public String getTokenName() {
-        return tokenName;
+    public String getCoinName() {
+        return coinName;
     }
 
-    public void setTokenName(String tokenName) {
-        this.tokenName = tokenName;
+    public void setCoinName(String coinName) {
+        this.coinName = coinName;
     }
 
     public double getAmount() {
